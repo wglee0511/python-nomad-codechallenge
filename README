@@ -1,0 +1,15 @@
+# Nomad - Python CodeChallenge
+
+CodeChallenge - 1
+[✅]  Simple Python function
+[✅]  x in list
+[✅]  find to list using number ( list[x] ), (x is number)
+[✅]  x add to list (list.add(x))
+[✅]  x remove to list (list.remove(x))
+
+CodeChallenge - 2
+[✅]  Simple Python conditions
+[✅]  if
+[✅]  elif
+[✅]  if / elif ( x in list )
+[✅]  type(x) is y
