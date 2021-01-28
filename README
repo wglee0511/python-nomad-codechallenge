@@ -13,3 +13,15 @@ CodeChallenge - 2
 [✅]  elif
 [✅]  if / elif ( x in list )
 [✅]  type(x) is y
+
+CodeChallenge - 3
+[✅]  Simple Web scrapping
+[✅]  input() => for console
+[✅]  check url is up
+[✅]  requests.get("url")
+[✅]  requests.status_code
+[✅]  for x in list
+[✅]  string to list using split()
+[✅]  remove space to use strip()
+[✅]  find("word")
+
