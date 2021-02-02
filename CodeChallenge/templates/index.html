@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+  <style>
+    header{
+      font-weight: 800;
+      font-size : 50px;
+
+    }
+    .sub{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    .main_title{
+      font-size: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>Early News</header>
+  <div class="sub">
+    Order by : 
+    <strong>Popular</strong>|
+    <a href="/new">New</a>
+  </div>
+
+  <main>
+    {% for list in popular_lists %}
+    <div>
+      <div>
+        <a href={{list["id"]}} class="main_title">{{list["title"]}}</a>
+        (
+        <a hred={{list["url"]}}>{{list["url"]}}</a>
+        )
+      </div>
+      <div>{{list["points"]}} points | By: {{list["author"]}} | {{list["comments"]}} comments</div>
+      <hr>
+    </div>
+    {% endfor %}
+  </main>
+</body>
+
+</html>
