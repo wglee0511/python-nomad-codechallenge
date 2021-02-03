@@ -37,3 +37,13 @@ CodeChallenge - 5
 CodeChallenge - 6
 [✅]  Job scrapper for albamon
 [✅]  Make job info each company to csv files
+
+CodeChallenge - 7
+[✅]  New scrapper using API
+[✅]  Used Flask for python website
+[✅]  Scrapping articles
+[✅]  Scrapping comments
+[✅]  Scrapping author
+[✅]  Scrapping points
+[✅]  Scrapping urls
+

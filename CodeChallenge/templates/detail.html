@@ -3,9 +3,53 @@
 
 <head>
   <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+  <style>
+    header{
+      font-weight: 800;
+      font-size : 50px;
+
+    }
+    .sub{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    .main_title{
+      font-size: 25px;
+    }
+  </style>
 </head>
 
 <body>
+  <header>{{article_info["title"]}}</header>
+  <div class="sub">
+    {{article_info["points"]}} points | by : {{article_info["author"]}} | {{article_info["comments"]}} comments |<a href={article_info["url"]}}> {{article_info["url"]}}</a>
+  </div>
+  <main>
+    {% for list in comments_info %}
+      {% if list["author"] != None %} 
+      <div>
+        <strong>{{list["author"]}} : </strong>
+        <p></p>
+        <p>{{list["text"]}}</p>
+        <p></p>
+      </div>
+      <hr>
+      {% elif list["author"] == None %}
+      <div>
+        <strong>[deleted]</strong>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
+      <hr>
+      {% endif %}
+    {% endfor %}
+    
+  </main>
+
+
 </body>
 
 </html>

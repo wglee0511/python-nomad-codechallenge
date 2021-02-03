@@ -19,8 +19,44 @@ db = {
   "popular": [],
   "new" : []
 }
+
 app = Flask("DayNine")
 
+
+
+@app.route("/<id>")
+def detail(id):
+  db_for_comments = []
+  requests_for_article = requests.get(make_detail_url(id)).json()
+  article_title = requests_for_article["title"]
+  article_author = requests_for_article["author"]
+  article_url = requests_for_article["url"]
+  article_points = requests_for_article["points"]
+  dict_for_article = {
+    "title" : article_title,
+    "author" : article_author,
+    "url" : article_url,
+    "points" : article_points
+  }
+  
+  list_for_comments = requests_for_article.get("children")
+  for list_comment in list_for_comments:
+   if list_comment["text"] != None:
+     dict_for_comments = {
+      "author": list_comment["author"],
+      "text": list_comment["text"].replace("<p>", "").replace("</p>", "").replace("&lt;", "").replace("&gt;", "").replace("&quot;", "").replace("&#x27;", "")
+     }
+     db_for_comments.append(dict_for_comments)
+   elif list_comment["text"] == None:
+     dict_for_comments = {
+      "author": list_comment["author"],
+      "text": list_comment["text"]
+      }
+     db_for_comments.append(dict_for_comments)
+  
+  
+  return render_template("detail.html", article_info = dict_for_article, comments_info=db_for_comments)
+  
   
 
 @app.route("/")
@@ -28,10 +64,8 @@ app = Flask("DayNine")
 def index():
   index_requests = requests.get(popular).json()
   hits_lists = index_requests["hits"]
-  if len(db["popular"]) != 0:
-    return render_template("index.html", popular_lists = db["popular"])
-  else:
-   for hit in hits_lists:
+
+  for hit in hits_lists:
     object_titile = hit.get("title")
     object_url = hit.get("url")
     object_points = hit.get("points")
@@ -47,7 +81,6 @@ def index():
      "comments" : object_comments
     }
     db["popular"].append(dict_for_popular)
-  
   return render_template("index.html", popular_lists = db["popular"])
 
 
@@ -55,10 +88,8 @@ def index():
 def index_new():
   index_requests = requests.get(new).json()
   hits_lists = index_requests["hits"]
-  if len(db["new"]) != 0:
-    return render_template("new.html", new_lists = db["new"])
-  else:
-   for hit in hits_lists:
+
+  for hit in hits_lists:
     object_titile = hit.get("title")
     object_url = hit.get("url")
     object_points = hit.get("points")
