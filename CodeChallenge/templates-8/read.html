@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+</head>
+<style>
+    h3,
+    a,
+    h4{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+<body>
+  <h1>
+    <a href="/">Reddit Reader</a>
+    </h1>
+  <h3>Reading : {{keyword}}</h3>
+
+  <main>
+    {% for list in keyword_lists %}
+    <div>
+      <h3>
+      <a href={{list["url"]}} target="_blank" >{{list["title"]}}</a>
+      </h3>
+      <h4>{{list["upvotes"]}} upvotes - {{list["keyword"]}}</h4>
+    </div>
+    <hr>
+    {% endfor %}
+
+  </main>
+</body>
+
+</html>

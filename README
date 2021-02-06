@@ -39,7 +39,7 @@ CodeChallenge - 6
 [✅]  Make job info each company to csv files
 
 CodeChallenge - 7
-[✅]  New scrapper using API
+[✅]  News scrapper using API
 [✅]  Used Flask for python website
 [✅]  Scrapping articles
 [✅]  Scrapping comments
@@ -47,3 +47,6 @@ CodeChallenge - 7
 [✅]  Scrapping points
 [✅]  Scrapping urls
 
+CodeChallenge - 8
+[✅]  Reddit scrapper
+[✅]  Scrapping checkbox items
