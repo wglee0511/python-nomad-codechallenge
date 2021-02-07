@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+  <style>
+    .main_div{
+      display : flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+    }
+    body{
+      background-color : #f8a5c2;
+      color : white;
+    }
+  </style>
+  <title>Job Scrapping</title>
+</head>
+<body>
+  <main>
+  <div class="main_div">
+    <h1>Remote Jobs</h1>
+    <h2>{{total_job}} {{keyword}} jobs found.</h2>
+    <a href="/export?word={{keyword}}">Export to CSV</a>
+    <a href="/">Go Back</a>
+  </div>
+
+  {% for job in job_list %}
+  <div>
+  <h3>{{job["title"]}}</h3>
+  <h4>{{job["company"]}}</h4>
+  <a href={{job["href"]}} >Apply</a>
+  <hr>
+  </div>
+
+  {% endfor%}
+
+  </main>
+</body>
+</html>
